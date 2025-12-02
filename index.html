@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Here's to You & your big Day</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- canvas-confetti (correct CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <section id="landing">
+    <!-- Step 1: Initializing -->
+    <div id="init-section">
+      <p id="init-text">Decrypting Today's Special File<span id="dots">.</span></p>
+    </div>
+
+    <!-- Step 2: Scanner -->
+    <div id="scanner-section" class="hidden">
+      <div class="scanner-box">
+        <div class="scan-line" id="scan-line"></div>
+      </div>
+      <p class="scan-text">Scanning for the one whose Day it is</p>
+    </div>
+
+    <!-- Step 3: Final Message -->
+    <div id="final-message" class="hidden">
+      <h1 class="title">Access Granted: Birthday Boy Detected</h1>
+      <div id="celebration-effects" class="hidden"></div>
+    </div>
+
+    <!-- Birthday screen (appears after celebration) -->
+    <div id="birthday-display" class="hidden" aria-hidden="true">
+      <div class="birthday-banner">Happiest Birthday Prabhanshu Sir</div>
+      <h1 class="birthday-heading">Here's to Progress, Calm & Good Energy All Year Long!</h1>
+      <div id="spark-container" aria-hidden="true"></div>
+      <!-- Scroll Down Button -->
+      <button id="scroll-btn" class="hidden" aria-hidden="true">
+        ⬇ Scroll Down ⬇
+      </button>
+    </div>
+  </section>
+
+  <!-- 💌 Letter Section -->
+  <section id="letter-section" aria-label="Letter section">
+    <div class="letter-container hidden-anim"> <!-- start hidden -->
+      <h2 class="letter-title">Dear SENIOR,</h2>
+      <p class="letter-text">
+        A very <b>Happiest Birthday to you</b>! May this year bless you with everything you pray for & even More than the Achievements you quietly work toward.
+        <br>
+        I remember once you mentioned aiming for 2-3 lakh job & TBH, I'm sure you'll go far beyond that coz you truly deserve it. Not everyone has the Courage to step out of comfort zone, live away from Family & handle everything Independently. You could've taken the easier path — the one you even advised me, of studying further whereas you chose early hard work & jaisa aapne bataya tha.. how people around you aren’t serious about their work, but you’re not like that & that itself is Inspiring.
+        <br>
+        Somewhere in our convos, knowingly or unknowingly, you've Guided me. Sometimes through advice or simply through the way you think about your own Life. A few things you said gave me Direction & even in casual talks, I've learnt a lot from you.
+        <br>
+        Thank You for those small advices & for being the kinda Senior who genuinely inspires. Please stay the same, your Positivity is rare & people around you can truly feel it. That's what makes it precious.
+        <br>
+        I hope your birthday brings the same warmth and happiness you share with others & your year ahead be filled with peace, laughter, Growth and moments that make your Heart Smile.
+      </p>
+      <br><br><br>
+      <button id="letter-scroll-btn" class="hidden" aria-hidden="true">
+        ⬇ Continue ⬇
+      </button>
+    </div>
+
+  </section>
+  
+  <!-- CELEBRATION SECTION (drop this where you want the celebration) -->
+  <section id="celebration-section" class="celebration-section">
+    <div class="celebration-inner">
+
+      <!-- Slide: Let's Celebrate -->
+      <div class="celebrate-slide slide show" id="slide-celebrate">
+        <h1 class="celebrate-title">Time for a Birthday Moment</h1>
+      </div>
+
+      <!-- Slide: Candle + Blow guide -->
+      <div class="celebrate-slide slide" id="slide-candle">
+        <p class="guide-text" id="blow-guide">Every Year Adds Light - Now let this one Gently Drift Away 🎉</p>
+        <br>
+        <div class="candle-wrap">
+          <div class="floating-number">23</div>
+
+          <div class="candle-modern">
+            <div class="candle-wax"></div>
+            <div class="candle-flame" id="flame"></div>
+            <div class="candle-glow"></div>
+          </div>
+        </div>
+        <div id="smoke-container"></div>
+
+        <!-- Optional manual blow button (in case auto-blow fails) -->
+        <button id="blow-btn" class="blow-btn">
+          Click to blow <span id="blow-count">8</span>
+        </button>
+      </div>
+
+      <!-- Slide: Make a wish -->
+      <div class="celebrate-slide slide" id="slide-wish">
+        <h3 class="wish-text">Take A Moment & Make A Wish ✨</h3>
+      </div>
+
+      <!-- Slide: Error (glitch) -->
+      <div class="celebrate-slide slide glitch-screen" id="slide-error">
+        <div class="error-box">
+          <div class="error-code">ERROR</div>
+          <div class="error-message glitch glitch-text" data-text="Cake File Missing">Cake File Missing</div>
+        </div>
+      </div>
+
+      <!-- Slide: Small follow-up message -->
+      <div class="celebrate-slide slide" id="slide-follow">
+        <p class="follow-msg">
+          Alright… So the system Officially Confirms: Cake File Missing.
+          <br>
+          And Honestly? I didn’t even bother Uploading a Virtual Cake this time — bcoz I already Knew what your Response would be:
+          <br>
+          ‘I don’t like Cakes’
+          <br>
+          ‘I don’t eat Cakes’
+          <br>
+          ‘I’m not a Cake Person’
+          <br>
+          Yes Sir, I can Practically hear it already.
+          <br>
+          So, to avoid Hearing that same line again, I took the Safest Option Possible:
+          <br>
+          No Cake → No Complaints → Error Accepted
+          <br>
+          <!-- Anyways, Real Celebrations don’t run on Sugar and Icing… They run on Good Wishes & Positivity, so I guess the Celebration is still fully functional. -->
+          <br>
+          But just saying: Agar Cake khana hota toh Aapko hi lekar aana padta. Bcoz this time, even the Virtual Bakery is on Leave😉.
+        </p>
+        <button id="final-scroll-btn" class="final-scroll hidden">
+          Last section
+        </button>
+
+      </div>
+
+      <!-- Audio (hidden) -->
+      <!-- <audio id="hb-audio" preload="auto">
+        <source src="happy_birthday.mp3" type="audio/mpeg" /> -->
+        <!-- Provide a short fallback or keep file in your project / public folder -->
+      <!-- </audio> -->
+
+      <!-- small autoplay fallback UI -->
+      <div id="audio-fallback" class="audio-fallback hidden">
+        <button id="play-audio-fallback">Play birthday music</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🌟 CLOSING SECTION -->
+  <section id="closing-section" class="closing-section">
+    
+    <div class="closing-box hidden-anim">
+      <h2 class="closing-title">A Small Note Before You Go</h2>
+
+      <p class="closing-text">
+        Please don’t take this as an attempt to Reconnect or Impress you. This is simply the Smallest way I could express a little Respect I have for you.
+        <br>
+        I enjoy creating such things for people who’ve had a Positive Impact on me & this was one of those Gestures — something I made with a Happy Intention.
+        <br>
+        Everyone deserves to feel a little special on their birthday & I just wanted to send you something thoughtful.
+        <br>
+        I just hope this brought even a Small Smile to your Face.
+        <br>
+        Honestly, mann to tha ki baat karke wish karu… but wo possible nhi tha. So for now, this is what I could do.
+        <br>
+        <b>Thank You, for Reading till here!</b>
+        <br><br>
+        <p class="letter-text wish-again">
+          <b>Once again, Very Happy Birthday Sir</b>
+          <br>
+          NJoy your Day & Celebrate Boldly!!!
+        </p>
+      </p>
+    </div>
+  </section>
+
+  <!-- 🎀 FOOTER -->
+  <footer class="footer">
+    <p>Designed with a Gentle Smile & Good Intentions for the Sweetest & Coolest Senior - from A Junior who Wishes You Well.</p>
+    <p class="footer-small">🎈💛✨⭐🎉🌻🤍</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
